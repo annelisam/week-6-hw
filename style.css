@@ -1,17 +1,14 @@
-.diva-name {
+.btn, .diva-name {
     margin-right: 15px;
     margin-bottom: 25px;
+    margin-top: 15px;
     background-color: pink;
     border: 1px solid pink;
 }
 
-.diva-name:hover {
+.btn:hover, .diva-name:hover {
     background-color: #ff00ff;
     border: 1px solid #ff00ff;
-}
-
-body { 
-    margin: 20px;
 }
 
 p{
@@ -20,4 +17,10 @@ p{
 
 #divaGifs{
     margin-bottom: 20px;
+}
+
+.jumbotron{
+    background-color: pink;
+    text-align: center;
+    color: #fff;
 }

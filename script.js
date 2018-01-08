@@ -43,6 +43,7 @@ $(document).ready(function(){
 
                 console.log(gifView);
 
+                // Displays gif results
                 var divaImg = $('<img>').attr("src", still).attr('data-animate', gifView).attr('data-still', still);
                 divaImg.attr('data-state', 'still');
 
@@ -59,6 +60,8 @@ $(document).ready(function(){
 
     });
 
+
+//play and pause Gifs
     function playGif() { 
         var state = $(this).attr('data-state');
         console.log(state);
@@ -71,6 +74,8 @@ $(document).ready(function(){
         }
 
     }
+
+    //Add diva to array + button 
 
 // doc on click closing tag
 })

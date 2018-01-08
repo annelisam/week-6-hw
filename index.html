@@ -14,6 +14,10 @@
 
 <body>
 
+<div class="container">
+
+    <div class="jumbotron"><h1>Diva Gifs!</h1></div>
+
     <!--Div with array of divas-->
     <div id="divaButtons"></div>
 
@@ -21,8 +25,17 @@
     <!--Div where all the gifs go-->
     <div id="divaGifs" data-state="still"></div>
 
+    <!--Div to add another gif-->
+    <div class="form-group col-3">
+            <label for="example-text-input" class="col-form-label">Add Diva (better be a great 1 tho)</label>
+              <input class="form-control" type="text" id="diva-add">
+
+            </div>
+
+            <button type="button" class="btn btn-primary" id="search-button">Search</button>
 
 
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="script.js"></script>
