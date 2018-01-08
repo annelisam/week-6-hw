@@ -76,6 +76,36 @@ $(document).ready(function(){
     }
 
     //Add diva to array + button 
+    function searchAPI() {
+
+        var newDiva = $("#newDiva").val();
+        console.log(newDiva);
+
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + newDiva + "&api_key=dc6zaTOxFJmzC&limit=10";
+        console.log(queryURL);
+
+
+		$.ajax({
+			url: queryURL,
+			method: 'GET'
+		})
+		.done(function(response) {
+			console.log(response);
+
+			var result = response.data;
+			for (i = 0; i <= results.length; i++) {
+			var a = $('<button>');
+            a.addClass('diva-name btn btn-primary');
+            a.attr('data-name', newDiva[i]);
+            a.text(newDiva[i]);
+            $('#divaButtons').append(a);
+			}
+		})
+}
+
+
+
+$("#search-button").on("click", searchAPI);
 
 // doc on click closing tag
 })
