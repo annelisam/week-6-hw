@@ -22,5 +22,57 @@ $(document).ready(function(){
 
         var queen = $(this).html();
         console.log(queen);
-    })
+
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + queen + "&api_key=dc6zaTOxFJmzC&limit=10";
+        console.log(queryURL);
+
+        $.ajax({
+            url: queryURL, 
+            method: 'GET'})
+
+        .done(function(response) {
+
+            var results = response.data;
+
+            $('#divaGifs').empty();
+
+            for (var j=0; j < results.length; j++) {
+                var gifDiv = $('<div>');
+                var gifView = results[j].images.fixed_height.url;
+                var still = results[j].images.fixed_height_still.url;
+
+                console.log(gifView);
+
+                var divaImg = $('<img>').attr("src", still).attr('data-animate', gifView).attr('data-still', still);
+                divaImg.attr('data-state', 'still');
+
+                $('#divaGifs').prepend(divaImg);
+                divaImg.on('click', playGif);
+
+                // pulls rating
+                var rating = results[j].rating;
+                console.log(rating);
+
+                var showRating = $('<p>').text("Rating: " + rating);
+                $('#divaGifs').prepend(showRating);
+            }
+
+    });
+
+    function playGif() { 
+        var state = $(this).attr('data-state');
+        console.log(state);
+     if ( state == 'still'){
+         $(this).attr('src', $(this).data('animate'));
+          $(this).attr('data-state', 'animate');
+     } else{
+         $(this).attr('src', $(this).data('still'));
+         $(this).attr('data-state', 'still');
+        }
+
+    }
+
+// doc on click closing tag
+})
+
 });
